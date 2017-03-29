@@ -112,14 +112,14 @@ end
 threshold = graythresh(imagen);
 imagen =~im2bw(imagen,threshold);
 %imagen = imopen(imagen, strel('rectangle',[5 ceil(Sp/2)]));
- w=ones(2);
+% w=ones(2);
 % imagen=imdilate(imagen,w);
-%imagen=imerode(imagen,w);
+% imagen=imerode(imagen,w);
 %se = ones(3);
 %closeBW = imopen(imagen,se);
 %imagen = imclose(closeBW,se);
 %% Remove all object containing fewer than 100 pixels
-imagen = bwareaopen(imagen,20);
+%imagen = bwareaopen(imagen,20);
 
 pause(1)
 %% Show image binary image
@@ -140,22 +140,22 @@ hold off
 pause (1)
 %% Objects extraction
 %%figure
- pathname = 'D:\captcha\captcha final\lol';
+ pathname = 'E:\BEProject\BEProjectNEW\lol';
  %%rmdir(pathname);
  mkdir(pathname);
 %imwrite(data,[pathname, 'data',num2str(j),'.png']);
 %[d,p] = find(L==n);
 %t2=(min(p))/2;
 %t1=(min(d))/2;
-t=10;
+t=7;
 
 for n=1:Ne
     [r,c] = find(L==n);
     if max(r)-min(r)>t && max(c)-min(c)>t
     n1=imagen(min(r):max(r),min(c):max(c));
-    %w=ones(2);
-    % n1=imdilate(n1,w);
-    %n1=imerode(n1,w);
+%     w=ones(3);
+%     n1=imdilate(n1,w);
+%     n1=imerode(n1,w);
 %     n1=imdilate(n1,w);
     n1=imcomplement(n1);
     n1=double(n1);
@@ -186,14 +186,17 @@ function pushbutton5_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 load('Theta1final.mat')
 load('Theta2final.mat')
-srcFiles = dir('D:\captcha\captcha final\lol\*.png');
+srcFiles = dir('E:\BEProject\BEProjectNEW\lol\*.png');
 valueSet =   {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'};
 keySet = {1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62};
 mapObj = containers.Map(keySet,valueSet)
 mapObj.Count
 ans = '';
+%cd 'E:\BEProject\BEProjectNEW\lol\';
+%delete E:\BEProject\BEProjectNEW\lol\*.png;
+%cd 'E:\BEProject\BEProjectNEW\';
 for i = 1 : length(srcFiles)
-    filename = strcat('D:\captcha\captcha final\lol\',srcFiles(i).name);
+    filename = strcat('E:\BEProject\BEProjectNEW\lol\',srcFiles(i).name);
     I = imread(filename);
     %figure, imshow(I);
     a = I;
