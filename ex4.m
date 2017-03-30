@@ -57,8 +57,12 @@ fprintf('\nLoading Saved Neural Network Parameters ...\n')
 % Load the weights into variables Theta1 and Theta2
 load('ex4weights.mat');
 %load('t.mat');
-T2=ones(62,hidden_layer_size+1);
-T1=ones(hidden_layer_size,401);
+load('Theta1final.mat');
+load('Theta2final.mat');
+T2=Theta1;
+T1=Theta2;
+%T2=ones(62,hidden_layer_size+1);
+%T1=ones(hidden_layer_size,401);
 Theta1=T2;
 Theta2 = T1;
  load('x.mat');
