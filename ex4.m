@@ -20,7 +20,7 @@ clear ; close all; clc
 
 %% Setup the parameters you will use for this exercise
 input_layer_size  = 400;  % 20x20 Input Images of Digits
-hidden_layer_size = 30;   % 25 hidden units
+hidden_layer_size = 150;   % 25 hidden units
 num_labels = 62;          % 10 labels, from 1 to 10   
                           % (note that we have mapped "0" to label 10)
 
@@ -57,12 +57,12 @@ fprintf('\nLoading Saved Neural Network Parameters ...\n')
 % Load the weights into variables Theta1 and Theta2
 load('ex4weights.mat');
 %load('t.mat');
-load('Theta1final.mat');
-load('Theta2final.mat');
-T2=Theta1;
-T1=Theta2;
-%T2=ones(62,hidden_layer_size+1);
-%T1=ones(hidden_layer_size,401);
+%load('Theta1final.mat');
+%load('Theta2final.mat');
+%T2=Theta1;
+%T1=Theta2;
+T2=ones(62,hidden_layer_size+1);
+T1=ones(hidden_layer_size,401);
 Theta1=T2;
 Theta2 = T1;
  load('x.mat');
@@ -199,7 +199,7 @@ fprintf('\nTraining Neural Network... \n')
 
 %  After you have completed the assignment, change the MaxIter to a larger
 %  value to see how more training helps.
-options = optimset('MaxIter', 1500);
+options = optimset('MaxIter', 1000);
 
 %  You should also try different values of lambda
 lambda = 1;

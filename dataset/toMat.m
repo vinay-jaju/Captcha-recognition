@@ -11,7 +11,7 @@ for i=1:num
    %temp = 255 * ones(150,1200);
    %img = [temp ; img; temp];
    %img = imresize(img, [20 20]);
- %  figure; imshow(img);
+   %figure; imshow(img);close;
    img = img(:);
    x(i,:) = img;
 end
