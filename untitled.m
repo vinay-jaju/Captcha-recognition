@@ -119,7 +119,7 @@ imagen =~im2bw(imagen,threshold);
 %closeBW = imopen(imagen,se);
 %imagen = imclose(closeBW,se);
 %% Remove all object containing fewer than 100 pixels
-imagen = bwareaopen(imagen,20);
+imagen = bwareaopen(imagen,10);
 
 pause(1)
 %% Show image binary image
@@ -147,7 +147,7 @@ pause (1)
 %[d,p] = find(L==n);
 %t2=(min(p))/2;
 %t1=(min(d))/2;
-t=10;
+t=6;
 
 for n=1:Ne
     [r,c] = find(L==n);
